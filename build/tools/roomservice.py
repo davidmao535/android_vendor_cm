@@ -235,7 +235,7 @@ def fetch_dependencies(repo_path, fallback_branch = None):
 
     if len(syncable_repos) > 0:
         print('Syncing dependencies')
-        os.system('repo sync --force-sync %s' % ' '.join(syncable_repos))
+        os.system('repo sync --force-sync -j4 -c %s' % ' '.join(syncable_repos))
 
     for deprepo in verify_repos:
         fetch_dependencies(deprepo)
