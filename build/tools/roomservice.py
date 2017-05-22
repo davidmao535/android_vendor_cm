@@ -297,7 +297,7 @@ else:
             add_to_manifest([adding], fallback_branch)
 
             print("Syncing repository to retrieve project.")
-            os.system('repo sync --force-sync %s' % repo_path)
+            os.system('repo sync --force-sync -j4 -c %s' % repo_path)
             print("Repository synced!")
 
             fetch_dependencies(repo_path, fallback_branch)
